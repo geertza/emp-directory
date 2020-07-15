@@ -3,7 +3,8 @@ import Axios from 'axios';
 
 export default class PersonList extends React.Component {
     state = {
-        persons:[]
+        persons:[],
+        search:''
     }
 
 
@@ -13,13 +14,24 @@ componentDidMount() {
         this.setState({persons: res.data.results})
     })
 }
+
+updateSearch(event){
+    this.setState({search:event.target.value.substr(0,10)})
+}
 render(){
+    let filteredPersons = this.state.persons.filter(
+        (persons) =>{
+            return persons.name.first.toLowerCase().indexOf(this.state.search.toLowerCase()) !==-1 ;
+        }
+    )
     return (
-       
-            
-            
         <div className="empBody">
-        {this.state.persons.map(person => (
+        <input type="text" 
+        value={this.state.search}
+        onChange={this.updateSearch.bind(this)}
+        />
+        
+        {filteredPersons.map(person => (
             <div className="empBlock">
             <ul>
                 <li><img src={person.picture.medium} alt=''></img></li>   
