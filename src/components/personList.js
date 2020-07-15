@@ -15,10 +15,23 @@ componentDidMount() {
 }
 render(){
     return (
-        <ul>
+       
             
-            {this.state.persons.map(person => (<li key={person.email}>{person.name.first}</li>))}
-        </ul>
+            
+        <div className="empBody">
+        {this.state.persons.map(person => (
+            <div className="empBlock">
+            <ul>
+                <li><img src={person.picture.medium} alt=''></img></li>   
+                <li key={person.name.first}>{person.name.first} {person.name.last}</li>
+                <li key={person.dob.date}>{person.dob.age}</li>
+                <li key={person.cell}>{person.cell}</li>
+                <li key={person.email}>{person.email}</li>
+                <li key={person.phone}>{person.location.city}{person.location.state}</li>
+            </ul>
+            </div>
+        ))}
+    </div>
     )
 }
 }

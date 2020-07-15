@@ -1,0 +1,48 @@
+header{
+    height: auto;
+    width: 100vw;
+    background-color: burlywood;
+    color: brown;
+    text-align: center;
+    font-size: 4.3vw;
+    font-weight: 500;
+    margin: 0%;
+    text-shadow: .5px .5px grey;
+}
+.search{
+    height: auto;
+    width: 100%;
+    background-color: grey;
+    color: burlywood;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: 500;
+    margin: 0%;
+    
+}
+.empBlock{
+    width: 28vw;
+    height: 35vh;
+    overflow: hidden;
+    font-size: 2.3vw;
+    background-color: lightblue;
+    border-radius: 4px;
+    border-style: ridge;
+}
+img{
+    height: 30%;
+    background-color: khaki;
+}
+.empBody{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(50, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    }
+body{
+    background-color: black;
+}
+ul{
+    list-style: none;
+}
