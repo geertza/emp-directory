@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-
+//define states
 export default class PersonList extends React.Component {
     state = {
         persons:[],
@@ -9,15 +9,14 @@ export default class PersonList extends React.Component {
         sort:'',
         order:''
     }
-
-
+//mount axios request for api dataa
 componentDidMount() {
     Axios.get("https://randomuser.me/api/?results=200&nat=us").then(res => {
         console.log(res.data.results);
         this.setState({persons: res.data.results})
     })
 }
-
+// event handlers
 updateSearch(event){
     this.setState({search:event.target.value.substr(0,10)})
 }
@@ -27,8 +26,7 @@ sortChange(event){
 orderChange(event){
         this.setState({order:event.target.value})
         }
-
-     
+// filter data and render it into a html file through jsx   
 render(){
     let filteredPersons = this.state.persons.filter(
         (persons) =>{
@@ -88,8 +86,7 @@ render(){
                 <p>Phone:{person.cell}</p>
                 <p>Email:{person.email}</p>
                 <p>{person.location.city}, {person.location.state}</p>
-            
-                </div>
+                    </div>
         })}
         </div>
     </div>
