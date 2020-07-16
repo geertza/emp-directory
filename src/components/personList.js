@@ -6,12 +6,13 @@ export default class PersonList extends React.Component {
         persons:[],
         search:'',
         filteredPersons:'',
-        sort:'age',
+        sort:'',
+        order:''
     }
 
 
 componentDidMount() {
-    Axios.get("https://randomuser.me/api/?results=10&nat=us").then(res => {
+    Axios.get("https://randomuser.me/api/?results=200&nat=us").then(res => {
         console.log(res.data.results);
         this.setState({persons: res.data.results})
     })
@@ -23,6 +24,9 @@ updateSearch(event){
 sortChange(event){
     this.setState({sort:event.target.value})
     }
+orderChange(event){
+        this.setState({order:event.target.value})
+        }
 
      
 render(){
@@ -42,7 +46,14 @@ render(){
         default:
             list = filteredPersons
       }
-   
+      let orderedList = ''
+      switch(this.state.order) {
+        case 'reverse':
+            orderedList = list.reverse()
+          break;
+        default:
+            orderedList = list
+      }
     
     return (
         <div className="empBody">
@@ -54,29 +65,32 @@ render(){
             onChange={this.updateSearch.bind(this)}
             />
             <form onSubmit={this.handleSubmit}>
-        <label>
-          Sort By
+        <label>Sort By </label>
           <select value={this.state.value} onChange={this.sortChange.bind(this)}>
             <option value="">default</option>
             <option value="age">Age</option>
             <option value="name">First Name</option>
           </select>
-        </label>
+        <label>Order: </label>
+          <select value={this.state.value} onChange={this.orderChange.bind(this)}>
+            <option value="null">Asc</option>
+            <option value="reverse">Desc</option>
+          </select>
       </form>
             </div>
         <div className="grid">
-        {list.map(person => (
-            <div className="empBlock">
-            <ul>
-                <li><img src={person.picture.medium} alt=''></img></li>   
-                <li key={person.name.first}>{person.name.first} {person.name.last}</li>
-                <li key={person.dob.date}>{person.dob.age}</li>
-                <li key={person.cell}>{person.cell}</li>
-                <li key={person.email}>{person.email}</li>
-                <li key={person.phone}>{person.location.city}{person.location.state}</li>
-            </ul>
+        {orderedList.map(function (person,i){
+            return <div key={i} className="empBlock">
+            
+                <img src={person.picture.large} alt=''></img>   
+                <h1> {person.name.first} {person.name.last}</h1>
+                <p>Age:{person.dob.age}</p>
+                <p>Phone:{person.cell}</p>
+                <p>Email:{person.email}</p>
+                <p>{person.location.city}, {person.location.state}</p>
+            
                 </div>
-            ))}
+        })}
         </div>
     </div>
     )
