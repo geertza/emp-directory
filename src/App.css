@@ -21,19 +21,24 @@ header{
     
 }
 .empBlock{
-    width: 28vw;
-    height: 35vh;
+    width: 22vw;
+    height: auto;
     overflow: hidden;
     font-size: 2.3vw;
     background-color: lightblue;
     border-radius: 4px;
     border-style: ridge;
+    padding: 5px;
 }
 img{
-    height: 30%;
+    width: 90%;
     background-color: khaki;
+    border-style: groove;
+    border-width: 3px;
+    border-radius: 10px;
+    justify-content: center;
 }
-.empBody{
+.grid{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(50, 1fr);
@@ -45,4 +50,22 @@ body{
 }
 ul{
     list-style: none;
+}
+li{
+    text-align: left;
+    font-size: 1.2vw;
+    position: relative;
+    left: 0%;
+}
+.searchBar{
+    width: 100%;
+    height: auto;
+    background-color: black;
+    color: brown;
+}
+#nameSearch{
+    height: 5vh;
+}
+label{
+    font-weight: 800;
 }
