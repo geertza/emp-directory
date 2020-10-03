@@ -12,7 +12,6 @@ export default class PersonList extends React.Component {
 //mount axios request for api dataa
 componentDidMount() {
     Axios.get("https://randomuser.me/api/?results=200&nat=us").then(res => {
-        console.log(res.data.results);
         this.setState({persons: res.data.results})
     })
 }
@@ -56,37 +55,48 @@ render(){
     return (
         <div className="empBody">
             <div className='searchBar'>
-            <label>First Name Search</label>
-            <input type="text"
-            id='nameSearch' 
-            value={this.state.search}
-            onChange={this.updateSearch.bind(this)}
-            />
-            <form onSubmit={this.handleSubmit}>
-        <label>Sort By </label>
-          <select value={this.state.value} onChange={this.sortChange.bind(this)}>
-            <option value="">default</option>
-            <option value="age">Age</option>
-            <option value="name">First Name</option>
-          </select>
-        <label>Order: </label>
-          <select value={this.state.value} onChange={this.orderChange.bind(this)}>
-            <option value="null">Asc</option>
-            <option value="reverse">Desc</option>
-          </select>
-      </form>
+                <div className='inline'>
+                <label>First Name Search</label>
+                <input type="text"
+                id='nameSearch' 
+                value={this.state.search}
+                onChange={this.updateSearch.bind(this)}
+                />
+                 </div>
+                
+               
+                <div className='inline'>
+                    <label>Sort By </label>
+                    <select value={this.state.value} onChange={this.sortChange.bind(this)}>
+                        <option value="">default</option>
+                        <option value="age">Age</option>
+                        <option value="name">First Name</option>
+                    </select>
+                </div>
+                <div className='inline'>  
+                    <label>Order: </label>
+                    <select value={this.state.value} onChange={this.orderChange.bind(this)}>
+                        <option value="null">Asc</option>
+                        <option value="reverse">Desc</option>
+                    </select>
+                </div>  
             </div>
-        <div className="grid">
-        {orderedList.map(function (person,i){
-            return <div key={i} className="empBlock">
-            
-                <img src={person.picture.large} alt=''></img>   
-                <h1> {person.name.first} {person.name.last}</h1>
-                <p>Age:{person.dob.age}</p>
-                <p>Phone:{person.cell}</p>
-                <p>Email:{person.email}</p>
-                <p>{person.location.city}, {person.location.state}</p>
-                    </div>
+            <div className="grid">
+                {orderedList.map(function (person,i){
+                return <div key={i} className="empBlock">
+                <div  className='grid2'  >
+                    <div className="imgBox">  
+                <img src={person.picture.large} alt='' />
+                <div className='name' ><h2> {person.name.first} {person.name.last}</h2></div>
+                </div>
+                <div className='age inlineD' ><h3>AGE</h3> <h3>{person.dob.age} </h3></div>
+                </div>
+                <div className='info'>
+                    <p>Phone:{person.cell}</p>
+                    <p>{person.email}</p>
+                    <p>{person.location.city}, {person.location.state}</p>
+                </div>    
+            </div>
         })}
         </div>
     </div>
