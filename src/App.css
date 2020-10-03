@@ -12,7 +12,7 @@ header{
 
 .empBlock{
     width: 20vw;
-    max-height: 45vh;
+    max-height: 55vh;
     overflow: hidden;
     font-size: 1.2vw;
     color: rgb(103, 141, 211);
@@ -105,5 +105,5 @@ h3{
 
 .info{
     position: relative;
-    top: -15%;
+    top: -12%;
 }
