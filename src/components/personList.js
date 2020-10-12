@@ -84,18 +84,13 @@ render(){
             <div className="grid">
                 {orderedList.map(function (person,i){
                 return <div key={i} className="empBlock">
-                <div  className='grid2'  >
-                    <div className="imgBox">  
                 <img src={person.picture.large} alt='' />
-                <div className='name' ><h2> {person.name.first} {person.name.last}</h2></div>
-                </div>
-                <div className='age inlineD' ><h3>AGE</h3> <h3>{person.dob.age} </h3></div>
-                </div>
-                <div className='info'>
-                    <p>Phone:{person.cell}</p>
-                    <p>{person.email}</p>
-                    <p>{person.location.city}, {person.location.state}</p>
-                </div>    
+                <div className='name' ><p> {person.name.first} {person.name.last}</p></div>
+                 <div className='age ' ><p>age</p> <p>{person.dob.age}</p></div>
+                    <p className='phone' >Phone:{person.cell}</p>
+                    <p className='email'>{person.email}</p>
+                    <p className='location'>{person.location.city}, {person.location.state}</p>
+                
             </div>
         })}
         </div>

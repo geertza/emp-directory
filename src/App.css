@@ -4,17 +4,17 @@ header{
     background-color: rgba(24, 66, 125, 0.252);
     color: rgb(103, 141, 211);
     text-align: center;
-    font-size: 4em;
+    font-size: 10vh;
     font-weight: 500;
     margin: 0%;
     text-shadow: .2px .2px rgb(245, 237, 237);
 }
 
 .empBlock{
-    width: 20vw;
-    max-height: 55vh;
+    position: relative;
+    width: 33vh;
+    height: 30vh;
     overflow: hidden;
-    font-size: 1.2vw;
     color: rgb(103, 141, 211);
     background-color: rgb(11, 90, 117);
     border-radius: 10px;
@@ -22,22 +22,20 @@ header{
     padding: 5px;
     text-align: center;
     font-weight: 500;
-    text-shadow: .2px .2px rgb(245, 237, 237);
 }
 img{
-    width: 90%;
-    margin: 5% ;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 60%;
     border-style: solid;
     border-width: 3px;
     border-radius: 50%;
     border-color: rgb(40, 184, 184);
 }
-.imgBox{
-    width: 150%;
-}
 .grid{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(50, 1fr);
     grid-column-gap: 3px;
     grid-row-gap: 3px;
@@ -62,48 +60,70 @@ label{
     font-weight: 800;
     padding: 8px;
 }
-h2{
-    margin: 0;
-}
-p{
-    margin: 0%;
-    color: rgb(195, 204, 19);
-    text-shadow: none;
-    font-size: 1.3em;
-}
+
 .name{
-    position: relative;
-    top: -25%;
-    left: 40%;
-    color: rgb(47, 9, 103);
-    background-color: rgba(255, 255, 255, 0.571);
-    /* width: 60%; */
-    margin: 0 20%;
+    position: absolute;
+    top: 60%;
+    right: 0%;
+    color: rgb(11, 65, 83);
+    background-color: rgb(251, 246, 246);
+    width: 100%;
+    font-size: 3vh;
+    padding: 3px;
 }
 
 .age{
-    position: relative;
-    right: -40%;
-    text-align: center;
-    color: rgb(195, 204, 19);
-    font-size: 1.5em;
-    width: 60%;
+    position: absolute;
+    right: 0%;
+    top: 20%;
+    color: rgb(11, 65, 83);
+    background-color: rgba(251, 246, 246, 0.694);
+    font-size: 4.5vh;
+    border-radius: 20%;
+    padding: 3px;
+    line-height: 4.3vh;
+}
+p{
     margin: 0;
-    background-color: teal;
-    height: 30%;
 }
 h3{
     margin: 0px;
 }
-.grid2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
-
-.info{
-    position: relative;
-    top: -12%;
+.location{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2.5vh;
+    color: rgb(11, 65, 83);
+    background-color: rgba(251, 246, 246, 0.694);
 }
+.phone{
+    position: absolute;
+    bottom: 14%;
+    font-size: 2.2vh;
+    color: black;
+}
+.email{
+    position: absolute;
+    bottom: 5%;
+    font-size: 2.1vh;
+    color: black;
+}
+
+@media only screen and (max-width: 650px) {
+    .empBlock{
+        width: 27vh;
+        height: 25vh;
+    }
+  }
+
+
+  @media only screen and (max-width: 550px) {
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(50, 1fr);
+        grid-column-gap: 3px;
+        grid-row-gap: 3px;
+        }
+  }
